@@ -1,0 +1,33 @@
+let Promise1 = new Promise(function(resolve,reject){
+  if(true){
+    resolve('Primera promesa resulta');
+  }else{
+    reject('Error en la promesa #1');
+  }
+});
+
+let Promise2 = new Promise(function(resolve,reject){
+  setTimeout(()=>{
+    resolve('Segunda promesa resuelta');
+  },500);
+});
+
+let Promise3 = new Promise(function(resolve,reject){
+  setTimeout(()=>{
+    resolve('Tercera promesa resuelta');
+  },1000);
+});
+
+let Promise4 = new Promise(function(resolve,reject){
+  setTimeout(()=>{
+    resolve('Cuarta promesa resuelta');
+  },1500);
+});
+
+Promise.all([Promise1,Promise2,Promise3,Promise4])
+  .then((values)=>{
+    console.log('Las promesas son: ', values);
+  })
+  .catch((error)=>{
+    console.log('Error...',error);
+  })
