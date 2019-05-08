@@ -1,0 +1,28 @@
+//Ejecución sincrona 
+console.log('Primer paso');
+
+//Se crea una variable a la cual se la asigna una promesa
+let Promise1 = new Promise((Resolve:any,Reject:any)=>{
+    setTimeout(()=>{
+       //La promesa se resuelve correctamente. Si fallara seria "false"
+        if(true){
+          Resolve('Promesa terminada correctamente');
+        }else{
+          Reject('Promesa terminada con fallo');
+        }
+    },2000);
+
+});
+
+//Ejecución sincrona 
+console.log('Segundo paso');
+
+//Implementando la promesa.
+Promise1
+    .then((parametro:any)=>{
+        console.log('Then...');
+        console.log(parametro);
+    })
+    .catch((parametro:any)=>{
+        console.log(parametro)
+    });
